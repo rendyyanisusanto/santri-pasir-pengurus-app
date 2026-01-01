@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Isi Presensi</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1e805c",
+                        "primary-dark": "#166346",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#131f1b",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1E2A25",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for cleaner look */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 20px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background-color: #334155;
+        }
+        /* Hiding scrollbar for horizontal scrolling containers if needed */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-x-hidden selection:bg-primary/20 selection:text-primary">
+<div class="relative flex flex-col min-h-screen w-full max-w-md mx-auto bg-background-light dark:bg-background-dark pb-24 shadow-2xl">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-30 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-200">
+<div class="flex items-center justify-between px-4 py-3">
+<button aria-label="Go back" class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-900 dark:text-white">
+<span class="material-symbols-outlined" style="font-size: 24px;">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold text-slate-900 dark:text-white tracking-tight">Isi Presensi</h1>
+<div class="w-10"></div> <!-- Spacer for center alignment -->
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 px-4 py-4 space-y-6">
+<!-- Context Controls (Date & Session) -->
+<section class="bg-surface-light dark:bg-surface-dark rounded-xl p-4 shadow-sm border border-slate-100 dark:border-slate-800 space-y-4">
+<!-- Date Picker Trigger -->
+<div class="relative">
+<label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Tanggal</label>
+<button class="flex w-full items-center justify-between rounded-lg border border-slate-200 dark:border-slate-700 bg-background-light dark:bg-black/20 p-3 text-left transition-colors hover:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+<span class="text-sm font-medium text-slate-900 dark:text-white">Rabu, 25 Oktober 2023</span>
+<span class="material-symbols-outlined text-primary" style="font-size: 20px;">calendar_today</span>
+</button>
+</div>
+<!-- Session Selector -->
+<div>
+<label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Sesi</label>
+<div class="flex p-1 bg-slate-100 dark:bg-black/20 rounded-lg">
+<button class="flex-1 py-1.5 px-3 rounded-md text-sm font-medium shadow-sm bg-white dark:bg-surface-dark text-primary dark:text-primary transition-all">Pagi</button>
+<button class="flex-1 py-1.5 px-3 rounded-md text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-all">Siang</button>
+<button class="flex-1 py-1.5 px-3 rounded-md text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-all">Malam</button>
+</div>
+</div>
+</section>
+<!-- List Header -->
+<div class="flex items-center justify-between pt-2">
+<h2 class="text-lg font-bold text-slate-900 dark:text-white">Daftar Santri</h2>
+<span class="px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-semibold">24 Santri</span>
+</div>
+<!-- Santri List -->
+<div class="space-y-3">
+<!-- Card 1: Hadir (Default/Active) -->
+<article class="bg-surface-light dark:bg-surface-dark p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 transition-shadow hover:shadow-md">
+<div class="flex items-start gap-4 mb-4">
+<div class="relative shrink-0">
+<div class="h-12 w-12 rounded-full bg-cover bg-center ring-2 ring-slate-100 dark:ring-slate-700" data-alt="Portrait of a young male student named Ahmad" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDoptdqO2pHa82aNZI8hu7kQkIOTySpftqOjEPMLRHTKRAyNnaMd62OiJ37f8MkXQGH9RiBKGfEvoHc1taHpaceO2LnZJtEeCyuamNYfzb6TnH9HzrtTRfoPlmayUMyfUkMnt8z96kTJ0iI-6vYCCanzoW8lRHUgveu5drAJRnSAcp_IzlVKrYIEZHRVVrTIkFYSkOZxKd6WodliH7OgU3nPS2Hmr4LfiJ-QfQp_nrX10Bq76ApVX-SI4Ym6fwjMfY1RoR0J1VRdc8Q');"></div>
+<div class="absolute -bottom-1 -right-1 bg-primary text-white rounded-full p-0.5 border-2 border-white dark:border-surface-dark">
+<span class="material-symbols-outlined block" style="font-size: 14px;">check</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-base font-semibold text-slate-900 dark:text-white truncate">Ahmad Fulan</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 truncate">NIS: 12345678</p>
+</div>
+</div>
+<!-- Status Toggles -->
+<div class="grid grid-cols-4 gap-2">
+<button class="flex flex-col items-center justify-center p-2 rounded-lg bg-primary text-white shadow-sm transition-transform active:scale-95">
+<span class="text-sm font-bold">H</span>
+<span class="text-[10px] opacity-90 mt-0.5 font-medium">Hadir</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="text-sm font-bold">I</span>
+<span class="text-[10px] mt-0.5">Izin</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="text-sm font-bold">S</span>
+<span class="text-[10px] mt-0.5">Sakit</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="text-sm font-bold">A</span>
+<span class="text-[10px] mt-0.5">Alpha</span>
+</button>
+</div>
+</article>
+<!-- Card 2: Sakit -->
+<article class="bg-surface-light dark:bg-surface-dark p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 transition-shadow hover:shadow-md">
+<div class="flex items-start gap-4 mb-4">
+<div class="h-12 w-12 rounded-full bg-cover bg-center ring-2 ring-slate-100 dark:ring-slate-700 shrink-0" data-alt="Portrait of a young male student named Budi" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBBg49XEpzZEjPbiAZ5ggl62tCdw2yRFFmdm0m5oDVDc2GZ1_IXQKCP8tJgDPo6FfTykWAWeYQMAIMt0TxiKF5gfJeRL-ex__3jMYNwy3sfzdkhtyQQfz1Cxkrr8mVA3pMjQMaFZdfDx5J5TptGiV_qITLF8H7084pU7H5S7kqLUli9r900WdzwlVwYuurYtB5oEEQofsj-OWgSoXYQRxGj8Ha9urGhm9eJHu2cKmCxI1NK3nI93XYb01JBgAT_ji8CWMqCfS1KeLT9');"></div>
+<div class="flex-1 min-w-0">
+<h3 class="text-base font-semibold text-slate-900 dark:text-white truncate">Budi Santoso</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 truncate">NIS: 12345679</p>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-2">
+<button class="flex flex-col items-center justify-center p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="text-sm font-bold">H</span>
+<span class="text-[10px] mt-0.5">Hadir</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="text-sm font-bold">I</span>
+<span class="text-[10px] mt-0.5">Izin</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2 rounded-lg bg-orange-500 text-white shadow-sm transition-transform active:scale-95">
+<span class="text-sm font-bold">S</span>
+<span class="text-[10px] opacity-90 mt-0.5 font-medium">Sakit</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="text-sm font-bold">A</span>
+<span class="text-[10px] mt-0.5">Alpha</span>
+</button>
+</div>
+</article>
+<!-- Card 3: Izin -->
+<article class="bg-surface-light dark:bg-surface-dark p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 transition-shadow hover:shadow-md">
+<div class="flex items-start gap-4 mb-4">
+<div class="h-12 w-12 rounded-full bg-cover bg-center ring-2 ring-slate-100 dark:ring-slate-700 shrink-0" data-alt="Portrait of a young male student named Dimas" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDBZYa14kNxWXZAkfcrNV3gdwkbSbX8FfmXZ0TrLVU2HjHBp4uR2rh5oBGH6cciZrQlmxsjVHjrd8RSYQOZQH-O1gej-AreJneA8lana8auuICkdNfXUWofH3hJlKNyPgkJb2KUsRBrDl1fbWiQQeugO5PXnPQ5zVrpRupHdWKL17ODq5Jrtpg3RgkNpNyH9VeJQn7Rx48X6KYbEUqsF-5TCQWN4HPBIEh1Vy1gjKL2iXFRulFx5b8ZKPhAgnTzjBhbto46oVOJdZGR');"></div>
+<div class="flex-1 min-w-0">
+<h3 class="text-base font-semibold text-slate-900 dark:text-white truncate">Dimas Pratama</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 truncate">NIS: 12345680</p>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-2">
+<button class="flex flex-col items-center justify-center p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="text-sm font-bold">H</span>
+<span class="text-[10px] mt-0.5">Hadir</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2 rounded-lg bg-blue-500 text-white shadow-sm transition-transform active:scale-95">
+<span class="text-sm font-bold">I</span>
+<span class="text-[10px] opacity-90 mt-0.5 font-medium">Izin</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="text-sm font-bold">S</span>
+<span class="text-[10px] mt-0.5">Sakit</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="text-sm font-bold">A</span>
+<span class="text-[10px] mt-0.5">Alpha</span>
+</button>
+</div>
+</article>
+<!-- Card 4: Alpha -->
+<article class="bg-surface-light dark:bg-surface-dark p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 transition-shadow hover:shadow-md">
+<div class="flex items-start gap-4 mb-4">
+<div class="h-12 w-12 rounded-full bg-cover bg-center ring-2 ring-slate-100 dark:ring-slate-700 shrink-0" data-alt="Portrait of a young male student named Eko" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDdyS_h4tZZXa6kGOY5-DEsXt8TqFccZdZNuqAFdhCTHuIzORdJIcq75Qpke9DnTh-TA7vdX5rCxju5rEP4fo3G7qTez1ZtcNsXtM1BYCRC86NiNGIRgUp8xuIhXBBVaVRPafB-hCbmm_vR03zlg-ssocXE2i-_O_JPbibDxzLndYfayY8Roxa9d4Bc3kVDk34eTLjO-djk_xWp_5S3FFQDZMCVf-M4Uz5RGUK4kac1iZ1zfQ9eCeaD81yTayKSGv_zTiEH5mOMPmio');"></div>
+<div class="flex-1 min-w-0">
+<h3 class="text-base font-semibold text-slate-900 dark:text-white truncate">Eko Kurniawan</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 truncate">NIS: 12345681</p>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-2">
+<button class="flex flex-col items-center justify-center p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="text-sm font-bold">H</span>
+<span class="text-[10px] mt-0.5">Hadir</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="text-sm font-bold">I</span>
+<span class="text-[10px] mt-0.5">Izin</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="text-sm font-bold">S</span>
+<span class="text-[10px] mt-0.5">Sakit</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2 rounded-lg bg-red-500 text-white shadow-sm transition-transform active:scale-95">
+<span class="text-sm font-bold">A</span>
+<span class="text-[10px] opacity-90 mt-0.5 font-medium">Alpha</span>
+</button>
+</div>
+</article>
+</div>
+<!-- Spacer for bottom bar -->
+<div class="h-8"></div>
+</main>
+<!-- Sticky Bottom Bar -->
+<div class="fixed bottom-0 left-0 right-0 z-40 p-4 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 flex justify-center w-full max-w-md mx-auto">
+<button class="w-full bg-primary hover:bg-primary-dark text-white font-semibold h-14 rounded-2xl shadow-lg shadow-primary/30 flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">save</span>
+<span>Simpan Presensi</span>
+</button>
+</div>
+<!-- Confirmation Dialog (Hidden by default, shown for example structure) -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" id="confirmation-dialog">
+<div class="bg-surface-light dark:bg-surface-dark rounded-2xl shadow-2xl w-full max-w-xs overflow-hidden animate-in fade-in zoom-in duration-200">
+<div class="p-6 text-center">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+<span class="material-symbols-outlined text-primary text-3xl">fact_check</span>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Konfirmasi Simpan</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-6">Pastikan data presensi sudah sesuai sebelum menyimpan.</p>
+<div class="bg-background-light dark:bg-black/20 rounded-lg p-3 mb-6 grid grid-cols-2 gap-y-2 text-sm">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-slate-600 dark:text-slate-300">Hadir: 20</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-blue-500"></span>
+<span class="text-slate-600 dark:text-slate-300">Izin: 2</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-orange-500"></span>
+<span class="text-slate-600 dark:text-slate-300">Sakit: 1</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-red-500"></span>
+<span class="text-slate-600 dark:text-slate-300">Alpha: 1</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 py-3 px-4 rounded-xl border border-slate-200 dark:border-slate-700 font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800">Batal</button>
+<button class="flex-1 py-3 px-4 rounded-xl bg-primary text-white font-semibold hover:bg-primary-dark shadow-md shadow-primary/20">Simpan</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

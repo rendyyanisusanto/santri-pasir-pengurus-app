@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pondok Management Dashboard</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#1e805c", "background-light": "#f6f8f7", "background-dark": "#131f1b", "surface-light": "#ffffff", "surface-dark": "#1e2b27"}, fontFamily: {display: "Inter"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col relative text-[#0f1a16] dark:text-gray-100 font-display transition-colors duration-200">
+<!-- Top App Bar Area -->
+<header class="sticky top-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-gray-200/50 dark:border-gray-800 pt-safe-top">
+<div class="px-4 py-3 flex items-center justify-between">
+<!-- Left: Greeting & Role -->
+<div class="flex flex-col">
+<h1 class="text-xl font-bold text-primary tracking-tight">Assalamu'alaikum,</h1>
+<div class="flex items-center gap-1.5">
+<span class="text-sm font-semibold text-gray-900 dark:text-white">Ustadz Ahmad</span>
+<span class="bg-primary/10 text-primary text-[10px] px-1.5 py-0.5 rounded font-medium uppercase tracking-wider border border-primary/20">Pengasuh</span>
+</div>
+</div>
+<!-- Right: Actions -->
+<div class="flex items-center gap-3">
+<button class="relative p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-300">notifications</span>
+<span class="absolute top-2 right-2.5 w-2 h-2 bg-red-500 rounded-full border border-white dark:border-background-dark"></span>
+</button>
+<div class="h-10 w-10 rounded-full bg-cover bg-center border-2 border-white dark:border-gray-700 shadow-sm" data-alt="Portrait of Ustadz Ahmad smiling in a white shirt" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDZsg9LRkGHEBUf-NWf2u6Ni76b7YOuHUy2hIfU27Y9NlUj3v0icI5PCv0xKGox1kbk-ccHPrwcvN3GXml5sTdQ_k8NmBzsoRVR2AeN1XDr4kV0FQ8eAwkq8FCXzprQld9-Mq9bX10idEYawG9rkxgk4v2LDFhAv7ChGqMSJQicD7FpoSDgaTXvZ7dEo0KAgcWF6cEQ5L3vEoxBD0OIqQy4lpv8wWrUvM77txqm2otwEdZnM4UavQUKe4NflPkVb-omw3f-A1N5Ax6f');">
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Scroll Area -->
+<main class="flex-1 overflow-y-auto overflow-x-hidden pb-24">
+<!-- Quick Stats Section -->
+<section class="px-4 py-4">
+<div class="flex gap-4 overflow-x-auto hide-scrollbar pb-2">
+<!-- Card 1 -->
+<div class="min-w-[160px] flex-1 bg-surface-light dark:bg-surface-dark rounded-xl border border-gray-200 dark:border-gray-700 p-4 shadow-sm flex flex-col justify-between h-[110px]">
+<div class="flex justify-between items-start">
+<span class="text-gray-500 dark:text-gray-400 text-sm font-medium">Total Santri</span>
+<span class="material-symbols-outlined text-primary/60 text-xl">groups</span>
+</div>
+<div>
+<p class="text-2xl font-bold text-gray-900 dark:text-white">120</p>
+<p class="text-xs text-green-600 font-medium flex items-center gap-0.5 mt-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +2 bulan ini
+                        </p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="min-w-[160px] flex-1 bg-surface-light dark:bg-surface-dark rounded-xl border border-gray-200 dark:border-gray-700 p-4 shadow-sm flex flex-col justify-between h-[110px]">
+<div class="flex justify-between items-start">
+<span class="text-gray-500 dark:text-gray-400 text-sm font-medium">Hadir Hari Ini</span>
+<span class="material-symbols-outlined text-primary/60 text-xl">check_circle</span>
+</div>
+<div>
+<p class="text-2xl font-bold text-gray-900 dark:text-white">115</p>
+<p class="text-xs text-gray-500 dark:text-gray-400 font-medium mt-1">
+                            dari 120 santri
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Navigation Grid -->
+<section class="px-4 pb-4">
+<h2 class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-3 uppercase tracking-wider pl-1">Menu Utama</h2>
+<div class="grid grid-cols-2 gap-3">
+<!-- Data Santri -->
+<button class="group flex flex-col items-center justify-center gap-3 bg-surface-light dark:bg-surface-dark p-5 rounded-xl border border-gray-200 dark:border-gray-700 shadow-[0_1px_2px_rgba(0,0,0,0.05)] hover:border-primary hover:shadow-md transition-all active:scale-[0.98] h-32">
+<div class="p-3 rounded-full bg-primary/5 group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl">people_outline</span>
+</div>
+<span class="font-semibold text-gray-800 dark:text-gray-100 text-sm">Data Santri</span>
+</button>
+<!-- Presensi -->
+<button class="group flex flex-col items-center justify-center gap-3 bg-surface-light dark:bg-surface-dark p-5 rounded-xl border border-gray-200 dark:border-gray-700 shadow-[0_1px_2px_rgba(0,0,0,0.05)] hover:border-primary hover:shadow-md transition-all active:scale-[0.98] h-32">
+<div class="p-3 rounded-full bg-primary/5 group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl">calendar_today</span>
+</div>
+<span class="font-semibold text-gray-800 dark:text-gray-100 text-sm">Presensi</span>
+</button>
+<!-- Syahriah -->
+<button class="group flex flex-col items-center justify-center gap-3 bg-surface-light dark:bg-surface-dark p-5 rounded-xl border border-gray-200 dark:border-gray-700 shadow-[0_1px_2px_rgba(0,0,0,0.05)] hover:border-primary hover:shadow-md transition-all active:scale-[0.98] h-32">
+<div class="p-3 rounded-full bg-primary/5 group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl">payments</span>
+</div>
+<span class="font-semibold text-gray-800 dark:text-gray-100 text-sm">Syahriah</span>
+</button>
+<!-- Nilai -->
+<button class="group flex flex-col items-center justify-center gap-3 bg-surface-light dark:bg-surface-dark p-5 rounded-xl border border-gray-200 dark:border-gray-700 shadow-[0_1px_2px_rgba(0,0,0,0.05)] hover:border-primary hover:shadow-md transition-all active:scale-[0.98] h-32">
+<div class="p-3 rounded-full bg-primary/5 group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl">menu_book</span>
+</div>
+<span class="font-semibold text-gray-800 dark:text-gray-100 text-sm">Nilai</span>
+</button>
+<!-- Pengumuman -->
+<button class="group flex flex-col items-center justify-center gap-3 bg-surface-light dark:bg-surface-dark p-5 rounded-xl border border-gray-200 dark:border-gray-700 shadow-[0_1px_2px_rgba(0,0,0,0.05)] hover:border-primary hover:shadow-md transition-all active:scale-[0.98] h-32">
+<div class="p-3 rounded-full bg-primary/5 group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl">campaign</span>
+</div>
+<span class="font-semibold text-gray-800 dark:text-gray-100 text-sm">Pengumuman</span>
+</button>
+<!-- Profil -->
+<button class="group flex flex-col items-center justify-center gap-3 bg-surface-light dark:bg-surface-dark p-5 rounded-xl border border-gray-200 dark:border-gray-700 shadow-[0_1px_2px_rgba(0,0,0,0.05)] hover:border-primary hover:shadow-md transition-all active:scale-[0.98] h-32">
+<div class="p-3 rounded-full bg-primary/5 group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl">person</span>
+</div>
+<span class="font-semibold text-gray-800 dark:text-gray-100 text-sm">Profil</span>
+</button>
+</div>
+</section>
+<!-- Information Card (Example of Permission/Leave context) -->
+<section class="px-4 pb-6">
+<h2 class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-3 uppercase tracking-wider pl-1">Aktivitas Terkini</h2>
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-gray-200 dark:border-gray-700 p-4 shadow-sm flex items-center gap-4">
+<div class="bg-amber-100 dark:bg-amber-900/30 p-2.5 rounded-lg shrink-0">
+<span class="material-symbols-outlined text-amber-600 dark:text-amber-500">warning</span>
+</div>
+<div class="flex-1">
+<h3 class="font-semibold text-sm text-gray-900 dark:text-white">Perizinan Menunggu</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">2 Santri meminta izin keluar pondok hari ini.</p>
+</div>
+<button class="text-primary font-semibold text-xs py-2 px-3 hover:bg-primary/5 rounded">Lihat</button>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full bg-surface-light dark:bg-surface-dark border-t border-gray-200 dark:border-gray-800 pb-safe-bottom z-40">
+<div class="flex justify-around items-center h-16">
+<a class="flex flex-col items-center justify-center w-full h-full gap-1 group" href="#">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">home</span>
+<span class="text-[10px] font-medium text-primary">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center w-full h-full gap-1 group text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">chat</span>
+<span class="text-[10px] font-medium">Pesan</span>
+</a>
+<a class="flex flex-col items-center justify-center w-full h-full gap-1 group text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">settings</span>
+<span class="text-[10px] font-medium">Pengaturan</span>
+</a>
+</div>
+</nav>
+<!-- SafeArea Spacer for scrolling -->
+<div class="h-6"></div>
+</body></html>

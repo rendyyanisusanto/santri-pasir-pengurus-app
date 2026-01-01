@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pondok Pesantren Login</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1e805c",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#131f1b",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1c2a25",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#0f1a16] dark:text-[#e0e6e4] antialiased selection:bg-primary/30 selection:text-primary">
+<div class="min-h-screen w-full flex flex-col items-center justify-center p-6 relative overflow-hidden">
+<!-- Decorative Background Elements -->
+<div class="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none"></div>
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none"></div>
+<!-- Main Login Container -->
+<main class="w-full max-w-[400px] flex flex-col gap-8 relative z-10">
+<!-- Brand Header -->
+<div class="flex flex-col items-center text-center gap-6">
+<div class="relative group">
+<div class="absolute inset-0 bg-primary/20 rounded-2xl blur-lg transform group-hover:scale-110 transition-transform duration-500"></div>
+<div class="relative h-28 w-28 rounded-2xl bg-surface-light dark:bg-surface-dark shadow-xl flex items-center justify-center overflow-hidden border border-white/20">
+<div class="bg-center bg-no-repeat bg-cover h-full w-full opacity-90" data-alt="Green geometric Islamic pattern logo for Pesantren" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCmbdSGlM-9ZLM7W-2lFnEL8uhplZz4iPjsuxWk-ayvfPpGgP4kmT7bmOoN0SZjifQj8-TgCa_qs2iUVvHZNxD8szoV6KiKmlGnpzql5wUtpVCnXdf8eXUD_4-H_gdv0b6XZopHw3fxEzjc9VFxKGYnq6yT50Ka_nF9DOQkOQnZoQ-hlpMZFnZ_LQr039pwqVAlxCDG7SwTb_pWPt8L8co__11Jpj-GABTLsZmTCZ8qacBHsqxrE6Qro7esZ7XkrEP39Z-JSxaKyEAY");'>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<h1 class="text-3xl font-bold tracking-tight text-[#0f1a16] dark:text-white">
+                        Portal Pesantren
+                    </h1>
+<p class="text-[#568f7a] dark:text-[#8abfac] text-base font-normal">
+                        Assalamu’alaikum, silakan login.
+                    </p>
+</div>
+</div>
+<!-- Login Form -->
+<form class="flex flex-col gap-5" onsubmit="event.preventDefault();">
+<!-- Error State Example (Hidden by default, remove 'hidden' to see) -->
+<div class="hidden flex items-center gap-3 p-3 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 text-sm">
+<span class="material-symbols-outlined text-[20px]">error</span>
+<p>Username atau password salah.</p>
+</div>
+<!-- Username Field -->
+<div class="space-y-2">
+<label class="sr-only" for="username">Username</label>
+<div class="relative flex items-center group">
+<span class="material-symbols-outlined absolute left-4 text-[#568f7a] group-focus-within:text-primary transition-colors z-10">person</span>
+<input class="form-input flex w-full h-14 pl-12 pr-4 bg-surface-light dark:bg-surface-dark border border-[#d2e4de] dark:border-[#2f453e] rounded-xl text-base text-[#0f1a16] dark:text-white placeholder-[#568f7a]/60 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all shadow-sm" id="username" name="username" placeholder="Username / NIS" type="text"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<label class="sr-only" for="password">Password</label>
+<div class="relative flex items-center group">
+<span class="material-symbols-outlined absolute left-4 text-[#568f7a] group-focus-within:text-primary transition-colors z-10">lock</span>
+<input class="form-input flex w-full h-14 pl-12 pr-12 bg-surface-light dark:bg-surface-dark border border-[#d2e4de] dark:border-[#2f453e] rounded-xl text-base text-[#0f1a16] dark:text-white placeholder-[#568f7a]/60 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all shadow-sm" id="password" name="password" placeholder="Password" type="password"/>
+<button class="absolute right-0 top-0 h-full px-4 flex items-center justify-center text-[#568f7a] hover:text-primary transition-colors focus:outline-none" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+<!-- Forgot Password -->
+<div class="flex justify-end">
+<a class="text-sm font-medium text-[#568f7a] hover:text-primary dark:text-[#8abfac] dark:hover:text-primary transition-colors" href="#">
+                        Lupa Password?
+                    </a>
+</div>
+<!-- Submit Button -->
+<button class="group relative flex w-full items-center justify-center overflow-hidden rounded-xl bg-primary h-14 px-5 text-white shadow-lg shadow-primary/30 hover:bg-primary/90 hover:shadow-primary/40 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-[#131f1b] transition-all active:scale-[0.98]" type="button">
+<!-- Normal State -->
+<span class="text-base font-bold tracking-wide">Masuk</span>
+<!-- Loading State (Hidden implementation example) -->
+<!-- <span class="absolute inset-0 flex items-center justify-center bg-primary">
+                        <svg class="animate-spin h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </span> -->
+</button>
+</form>
+<div class="text-center mt-4">
+<p class="text-xs text-[#568f7a]/70 dark:text-[#8abfac]/50">
+                    © 2024 Sistem Manajemen Pesantren
+                 </p>
+</div>
+</main>
+</div>
+</body></html>

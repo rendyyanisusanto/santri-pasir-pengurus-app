@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline - Pengurus Pondok</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #f0fdf7 0%, #dcfce9 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 400px;
+    }
+
+    .icon {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 30px;
+      background: #1e805c;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 40px rgba(30, 128, 92, 0.3);
+    }
+
+    .icon svg {
+      width: 70px;
+      height: 70px;
+      fill: white;
+    }
+
+    h1 {
+      color: #1e805c;
+      font-size: 28px;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    p {
+      color: #4b5563;
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .retry-btn {
+      display: inline-block;
+      background: #1e805c;
+      color: white;
+      padding: 12px 32px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(30, 128, 92, 0.3);
+    }
+
+    .retry-btn:hover {
+      background: #16664a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(30, 128, 92, 0.4);
+    }
+
+    .offline-icon {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon offline-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M1.27 4.27L2.66 2.86C12.68-2.97 20.85 3.43 23 7.12L21.3 8.81C19.71 5.96 13.13 0.41 4.5 5.46L5.89 6.84C13.62 2.67 18.78 7.12 20.28 9.39L18.6 11.07C17.5 9.46 13.76 5.64 7.27 8.82L8.66 10.21C13.87 7.86 16.31 10.71 17.2 12.14L15.5 13.82C14.87 12.89 13.17 10.88 9.84 12.28L19.78 22.22L18.36 23.64L14.5 19.78C14.5 19.78 14.5 19.78 14.5 19.78C13.33 20.86 11.81 21.5 10.13 21.5C8.45 21.5 6.93 20.86 5.76 19.78L1.27 15.29L2.66 13.87L7.15 18.36C8.96 20.17 11.3 20.17 13.11 18.36L1.27 6.54L2.66 5.12L1.27 4.27Z"/>
+      </svg>
+    </div>
+
+    <h1>Anda Sedang Offline</h1>
+    <p>Sepertinya tidak ada koneksi internet. Silakan periksa koneksi Anda dan coba lagi.</p>
+
+    <a href="/" class="retry-btn" onclick="window.location.reload(); return false;">
+      Coba Lagi
+    </a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Data Santri List</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1e805c",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#131f1b",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased selection:bg-primary/20 selection:text-primary">
+<div class="relative flex min-h-screen flex-col overflow-x-hidden pb-24">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-30 flex items-center justify-between bg-background-light/95 px-5 py-4 backdrop-blur-md dark:bg-background-dark/95 border-b border-transparent transition-all">
+<h1 class="text-xl font-bold tracking-tight text-[#0f1a16] dark:text-white flex-1">Data Santri</h1>
+<div class="flex items-center gap-2">
+<!-- Filter Action (Optional) -->
+<button class="group flex h-10 w-10 items-center justify-center rounded-full text-[#568f7a] hover:bg-primary/10 dark:text-primary/80 dark:hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined group-hover:text-primary">filter_list</span>
+</button>
+</div>
+</header>
+<!-- Search Bar -->
+<div class="px-5 py-2 sticky top-[72px] z-20 bg-background-light dark:bg-background-dark">
+<div class="relative flex items-center w-full rounded-full bg-white dark:bg-[#1f2b27] shadow-sm shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 overflow-hidden transition-all group focus-within:ring-2 focus-within:ring-primary focus-within:border-primary">
+<div class="flex items-center justify-center pl-4 pr-3 text-[#568f7a]">
+<span class="material-symbols-outlined text-[22px]">search</span>
+</div>
+<input class="w-full border-none bg-transparent py-3.5 pr-4 text-base text-[#0f1a16] placeholder-[#568f7a]/60 focus:ring-0 dark:text-white dark:placeholder-slate-500 font-normal leading-normal" placeholder="Search by Name or NIS..." type="text"/>
+</div>
+</div>
+<!-- Main Content Area -->
+<main class="flex-1 px-5 space-y-4 pt-4">
+<!-- List Item: Active / Normal -->
+<div class="group relative flex items-center justify-between gap-4 rounded-2xl bg-white p-3 pr-4 shadow-sm shadow-slate-100 transition-all hover:shadow-md active:scale-[0.99] dark:bg-[#1a2622] dark:shadow-none border border-transparent hover:border-primary/10">
+<div class="flex items-center gap-4">
+<div class="relative h-[52px] w-[52px] shrink-0 overflow-hidden rounded-full border border-slate-100 bg-slate-100 dark:border-slate-700 dark:bg-slate-800">
+<img class="h-full w-full object-cover" data-alt="Portrait of a young male student named Muhammad Rizky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAusd0VPbAq1SJYl1RegGtzUYIi3U9RQiHZBkaTm0lGZBLNIAsYu8WLMqrDm7mEqClLiK1i1MT_c5Sf6aHn68omB80WD0u_eIFYjUAh3xnCud67GPdLlLGAd10b4Ru0jiz5n9CHUDYE-3OtV2QdI2xEeVd-I7k3PQqoVQuPBW1jLqkbda9Lzm6VPXSz-pCv5kG6QGylaetr7t6qpbw6Huhij98XzNWX7tK9WnWt-ZnFnZ7FvGRiDlBqXu0TA6B9ZHJF6eOVwNFsG_0K"/>
+</div>
+<div class="flex flex-col justify-center gap-0.5">
+<h3 class="text-[16px] font-semibold text-[#0f1a16] dark:text-white line-clamp-1 leading-tight group-hover:text-primary transition-colors">Muhammad Rizky</h3>
+<span class="text-sm font-medium text-primary dark:text-primary/90">NIS: 12345</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+<!-- List Item: Normal -->
+<div class="group relative flex items-center justify-between gap-4 rounded-2xl bg-white p-3 pr-4 shadow-sm shadow-slate-100 transition-all hover:shadow-md active:scale-[0.99] dark:bg-[#1a2622] dark:shadow-none border border-transparent hover:border-primary/10">
+<div class="flex items-center gap-4">
+<div class="relative h-[52px] w-[52px] shrink-0 overflow-hidden rounded-full border border-slate-100 bg-slate-100 dark:border-slate-700 dark:bg-slate-800">
+<img class="h-full w-full object-cover" data-alt="Portrait of a male student named Ahmad Fauzan" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5FUxCcY8MIFq72RwIL_R3xy-89jgfjXEw0FnSif8xanqcF4MIZZmbWV9Dc6RMbYcSGFRfLR3OTfNTcPeU0TJny6-9qeWHHDn2pJOJr0_sOiJqmPhV-encAmM7tgkiD-UyYF5RxLNOQPGzpmBFTLrmmXNRmq1MdnKVng8APdCQzi_cqwgjySE8ZJr7Fbs8rZ4aSeYnePWuAwxaixX7ySGOksWgpvixEROGpqL3uCj9omrysHGA-cXUfQGh1aEIKvNDShnW4DyYJWa7"/>
+</div>
+<div class="flex flex-col justify-center gap-0.5">
+<h3 class="text-[16px] font-semibold text-[#0f1a16] dark:text-white line-clamp-1 leading-tight group-hover:text-primary transition-colors">Ahmad Fauzan</h3>
+<span class="text-sm font-normal text-[#568f7a] dark:text-slate-400">NIS: 12346</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+<!-- List Item: Normal -->
+<div class="group relative flex items-center justify-between gap-4 rounded-2xl bg-white p-3 pr-4 shadow-sm shadow-slate-100 transition-all hover:shadow-md active:scale-[0.99] dark:bg-[#1a2622] dark:shadow-none border border-transparent hover:border-primary/10">
+<div class="flex items-center gap-4">
+<div class="relative h-[52px] w-[52px] shrink-0 overflow-hidden rounded-full border border-slate-100 bg-slate-100 dark:border-slate-700 dark:bg-slate-800">
+<img class="h-full w-full object-cover" data-alt="Portrait of a female student named Siti Aminah" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKWfHQNm00F3zgcuUZGXDyZ9u8rxM2v52uLVlXQDEjiegwMdTZuBKUGcDP8OqnZOsjQ12Ivk0fqwJ_tPtOu2q3EdBxS3XpgFMuZqPpweeJZQpOaZJRIXUAYutr81bjZL6IPdLPtTmwaqeoN7nU4zQgbKikE49SdoZGQHxvnIaF0vT8B1Ass_gIQ1Wx2BK3q92PJwf_cn4P-3V-yDtOHTEOc2CGK9QTEaC3tPAclCFPhqn_PB8N0YPBfddR08FqQ7S_uzSR2-Dle9id"/>
+</div>
+<div class="flex flex-col justify-center gap-0.5">
+<h3 class="text-[16px] font-semibold text-[#0f1a16] dark:text-white line-clamp-1 leading-tight group-hover:text-primary transition-colors">Siti Aminah</h3>
+<span class="text-sm font-normal text-[#568f7a] dark:text-slate-400">NIS: 12347</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+<!-- List Item: Long Name Scenario -->
+<div class="group relative flex items-center justify-between gap-4 rounded-2xl bg-white p-3 pr-4 shadow-sm shadow-slate-100 transition-all hover:shadow-md active:scale-[0.99] dark:bg-[#1a2622] dark:shadow-none border border-transparent hover:border-primary/10">
+<div class="flex items-center gap-4 overflow-hidden">
+<div class="relative h-[52px] w-[52px] shrink-0 overflow-hidden rounded-full border border-slate-100 bg-slate-100 dark:border-slate-700 dark:bg-slate-800">
+<img class="h-full w-full object-cover" data-alt="Portrait of a male student with a long name" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJ8tVRTMxG6JQ_WunyBzU_EaCoEAKcUyTur70CtHRZNhLe9D91KtzvLh0CFQYlalO1Y9FWTnhu9-qMv3DGWO-5cKXCa5dzcga4Xn_Z_IEpOXdJQHeJXNY2gUbofAxQgLiDqprnsDt0HkY1zmpqVSiuOaapBusTQflKOP4USDsHEf5lkdCo_1WpmIciv-hCPZQRl39WReOIBhO2SunNy71ih8UpHb8prtzBZXxWtcU3ZpH6Ut7IoE4bu4RBqCiwCOa99ynxdLoH7utI"/>
+</div>
+<div class="flex flex-col justify-center gap-0.5 overflow-hidden">
+<h3 class="text-[16px] font-semibold text-[#0f1a16] dark:text-white truncate leading-tight group-hover:text-primary transition-colors">Abdurrahman Wahid bin Abdullah</h3>
+<span class="text-sm font-normal text-[#568f7a] dark:text-slate-400">NIS: 12348</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors shrink-0">chevron_right</span>
+</div>
+<!-- DEMO: Loading State Indicators (Skeleton) -->
+<div class="relative py-4">
+<div aria-hidden="true" class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-gray-200 dark:border-gray-700"></div>
+</div>
+<div class="relative flex justify-center">
+<span class="bg-background-light px-2 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:bg-background-dark">Loading State</span>
+</div>
+</div>
+<!-- Loading Skeleton 1 -->
+<div class="flex items-center gap-4 rounded-2xl bg-white p-3 pr-4 shadow-sm shadow-slate-100 dark:bg-[#1a2622] dark:shadow-none animate-pulse">
+<div class="h-[52px] w-[52px] shrink-0 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+<div class="flex flex-1 flex-col gap-2">
+<div class="h-4 w-32 rounded bg-slate-200 dark:bg-slate-700"></div>
+<div class="h-3 w-16 rounded bg-slate-200 dark:bg-slate-700"></div>
+</div>
+</div>
+<!-- Loading Skeleton 2 -->
+<div class="flex items-center gap-4 rounded-2xl bg-white p-3 pr-4 shadow-sm shadow-slate-100 dark:bg-[#1a2622] dark:shadow-none animate-pulse opacity-70">
+<div class="h-[52px] w-[52px] shrink-0 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+<div class="flex flex-1 flex-col gap-2">
+<div class="h-4 w-40 rounded bg-slate-200 dark:bg-slate-700"></div>
+<div class="h-3 w-20 rounded bg-slate-200 dark:bg-slate-700"></div>
+</div>
+</div>
+<!-- DEMO: Empty State Indicators -->
+<div class="relative py-4">
+<div aria-hidden="true" class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-gray-200 dark:border-gray-700"></div>
+</div>
+<div class="relative flex justify-center">
+<span class="bg-background-light px-2 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:bg-background-dark">Empty State</span>
+</div>
+</div>
+<!-- Empty State -->
+<div class="flex flex-col items-center justify-center py-12 text-center rounded-2xl border-2 border-dashed border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-[#1a2622]/50">
+<div class="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-white dark:bg-[#1f2b27] shadow-sm">
+<span class="material-symbols-outlined text-4xl text-slate-300 dark:text-slate-600">person_search</span>
+</div>
+<h3 class="text-lg font-semibold text-[#0f1a16] dark:text-white">No Santri Found</h3>
+<p class="mt-1 max-w-[240px] text-sm text-[#568f7a] dark:text-slate-400">We couldn't find any student matching your search.</p>
+</div>
+</main>
+<!-- Floating Action Button (PAU Role Only) -->
+<button class="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-[16px] bg-primary text-white shadow-lg shadow-primary/40 transition-all hover:scale-105 hover:bg-primary/90 hover:shadow-primary/50 active:scale-95 active:shadow-sm focus:outline-none focus:ring-4 focus:ring-primary/20">
+<span class="material-symbols-outlined text-[28px]">add</span>
+</button>
+</div>
+</body></html>

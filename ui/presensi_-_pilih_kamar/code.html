@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Presensi - Pilih Kamar</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1e805c",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#131f1b",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1e2e28",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col antialiased selection:bg-primary/30">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-50 bg-background-light dark:bg-background-dark border-b border-gray-200 dark:border-white/10 px-4 py-3 flex items-center justify-between transition-colors duration-200">
+<button aria-label="Go back" class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 active:scale-95 transition-all text-gray-900 dark:text-white">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h1 class="flex-1 text-center text-lg font-bold text-gray-900 dark:text-white tracking-tight">Pilih Kamar</h1>
+<div class="w-10"></div> <!-- Spacer for optical centering -->
+</div>
+<!-- Main Content -->
+<main class="flex-1 px-4 py-4 max-w-md mx-auto w-full flex flex-col gap-5">
+<!-- Search Bar -->
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-3 border-none rounded-xl bg-white dark:bg-surface-dark text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/50 shadow-sm transition-shadow" placeholder="Cari nama atau nomor kamar..." type="text"/>
+</div>
+<!-- Section: Your Rooms -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between px-1">
+<h2 class="text-base font-bold text-gray-900 dark:text-white">Daftar Kamar Anda</h2>
+<span class="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded-full">4 Kamar</span>
+</div>
+<!-- List Item 1: Pending (Primary Action) -->
+<button class="group flex flex-col bg-white dark:bg-surface-dark rounded-xl p-4 shadow-sm border border-transparent hover:border-primary/30 active:scale-[0.99] transition-all duration-200 relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-orange-400"></div>
+<div class="flex items-center justify-between w-full">
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary">
+<span class="material-symbols-outlined">bed</span>
+</div>
+<div class="flex flex-col items-start">
+<div class="flex items-center gap-2">
+<h3 class="text-base font-semibold text-gray-900 dark:text-white">Kamar 101</h3>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400">Asrama Al-Ghazali • 20 Santri</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-600">chevron_right</span>
+</div>
+<div class="mt-3 flex items-center gap-2">
+<span class="inline-flex items-center gap-1 rounded-md bg-orange-50 dark:bg-orange-900/20 px-2 py-1 text-xs font-medium text-orange-700 dark:text-orange-300 ring-1 ring-inset ring-orange-600/10 dark:ring-orange-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></span>
+                        Belum Presensi
+                    </span>
+<span class="text-xs text-gray-400 dark:text-gray-500">Terakhir: Kemarin, 18:00</span>
+</div>
+</button>
+<!-- List Item 2: Done (Secondary State) -->
+<button class="group flex flex-col bg-white dark:bg-surface-dark rounded-xl p-4 shadow-sm border border-transparent hover:border-primary/30 active:scale-[0.99] transition-all duration-200 relative overflow-hidden opacity-90">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="flex items-center justify-between w-full">
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center w-12 h-12 rounded-lg bg-gray-50 dark:bg-white/5 text-gray-500 dark:text-gray-400">
+<span class="material-symbols-outlined">meeting_room</span>
+</div>
+<div class="flex flex-col items-start">
+<h3 class="text-base font-semibold text-gray-900 dark:text-white">Kamar 102</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Asrama Al-Ghazali • 18 Santri</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-600">chevron_right</span>
+</div>
+<div class="mt-3 flex items-center gap-2">
+<span class="inline-flex items-center gap-1 rounded-md bg-green-50 dark:bg-green-900/20 px-2 py-1 text-xs font-medium text-primary ring-1 ring-inset ring-green-600/10 dark:ring-green-500/20">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                        Sudah Presensi
+                    </span>
+<span class="text-xs text-gray-400 dark:text-gray-500">Hari ini, 07:30</span>
+</div>
+</button>
+<!-- List Item 3: Pending -->
+<button class="group flex flex-col bg-white dark:bg-surface-dark rounded-xl p-4 shadow-sm border border-transparent hover:border-primary/30 active:scale-[0.99] transition-all duration-200 relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-orange-400"></div>
+<div class="flex items-center justify-between w-full">
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary">
+<span class="material-symbols-outlined">bed</span>
+</div>
+<div class="flex flex-col items-start">
+<h3 class="text-base font-semibold text-gray-900 dark:text-white">Kamar 103</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Asrama Al-Ghazali • 22 Santri</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-600">chevron_right</span>
+</div>
+<div class="mt-3 flex items-center gap-2">
+<span class="inline-flex items-center gap-1 rounded-md bg-orange-50 dark:bg-orange-900/20 px-2 py-1 text-xs font-medium text-orange-700 dark:text-orange-300 ring-1 ring-inset ring-orange-600/10 dark:ring-orange-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></span>
+                        Belum Presensi
+                    </span>
+</div>
+</button>
+<!-- List Item 4: Pending -->
+<button class="group flex flex-col bg-white dark:bg-surface-dark rounded-xl p-4 shadow-sm border border-transparent hover:border-primary/30 active:scale-[0.99] transition-all duration-200 relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-orange-400"></div>
+<div class="flex items-center justify-between w-full">
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary">
+<span class="material-symbols-outlined">bed</span>
+</div>
+<div class="flex flex-col items-start">
+<h3 class="text-base font-semibold text-gray-900 dark:text-white">Kamar 104</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Asrama Al-Fatih • 15 Santri</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-600">chevron_right</span>
+</div>
+<div class="mt-3 flex items-center gap-2">
+<span class="inline-flex items-center gap-1 rounded-md bg-orange-50 dark:bg-orange-900/20 px-2 py-1 text-xs font-medium text-orange-700 dark:text-orange-300 ring-1 ring-inset ring-orange-600/10 dark:ring-orange-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></span>
+                        Belum Presensi
+                    </span>
+</div>
+</button>
+</div>
+<!-- Section: Loading Skeleton (Simulated Infinite Scroll) -->
+<div class="flex flex-col gap-3 mt-2 animate-pulse">
+<div class="flex flex-col bg-gray-200 dark:bg-white/5 rounded-xl p-4 shadow-sm border border-transparent h-[100px] relative overflow-hidden">
+</div>
+<div class="flex justify-center mt-4">
+<p class="text-xs text-gray-400 dark:text-gray-600 font-medium">Memuat data kamar lainnya...</p>
+</div>
+</div>
+</main>
+<!-- Floating Action Button (Optional Context) -->
+<!-- Used for something generic like Scan QR if needed, kept subtle -->
+<button class="fixed bottom-6 right-6 w-14 h-14 bg-primary text-white rounded-2xl shadow-lg shadow-primary/30 flex items-center justify-center hover:bg-primary/90 active:scale-95 transition-all z-40">
+<span class="material-symbols-outlined text-2xl">qr_code_scanner</span>
+</button>
+</body></html>
