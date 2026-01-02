@@ -1,25 +1,29 @@
 <template>
   <div class="min-h-screen bg-gray-50 pb-24">
-    <!-- Custom Gradient Header -->
-    <div class="bg-gradient-to-br from-primary-600 to-primary-800 pb-24 pt-6 px-4 shadow-lg rounded-b-[2.5rem] relative z-10">
-      <div class="flex items-center justify-between mb-2">
+    <!-- Premium Gradient Header -->
+    <div class="bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 pb-24 pt-8 px-5 shadow-xl rounded-b-[2.5rem] relative overflow-hidden">
+      <!-- Decorative circles -->
+      <div class="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 rounded-full bg-white/5 blur-3xl pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-60 h-60 rounded-full bg-black/10 blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 flex items-center justify-between mb-2">
         <button 
           @click="$router.back()" 
-          class="p-2 rounded-full bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 transition-all focus:outline-none focus:ring-2 focus:ring-white/50"
+          class="p-2.5 rounded-xl bg-white/10 text-white backdrop-blur-md border border-white/10 hover:bg-white/20 transition-all active:scale-95 touch-manipulation shadow-sm"
           aria-label="Kembali"
         >
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
           </svg>
         </button>
-        <h1 class="text-white text-xl font-bold tracking-wide shadow-sm">Izin Santri</h1>
+        <h1 class="text-white text-lg font-bold tracking-wide shadow-sm">Izin Santri</h1>
         <button
           v-if="canCreate"
           @click="showForm = true"
-          class="p-2 rounded-full bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 transition-all"
+          class="p-2.5 rounded-xl bg-white/10 text-white backdrop-blur-md border border-white/10 hover:bg-white/20 transition-all active:scale-95 shadow-sm"
         >
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
           </svg>
         </button>
         <div v-else class="w-10"></div>
@@ -29,7 +33,7 @@
     <main class="px-4 -mt-16 relative z-20 max-w-lg mx-auto">
       <!-- Filters Card -->
       <div class="bg-white rounded-3xl shadow-lg shadow-gray-200/50 border border-gray-100 p-5 mb-6">
-        <div class="grid grid-cols-2 gap-3">
+        <div class="grid grid-cols-2 gap-3 mb-4">
           <select
             v-model="filters.status"
             @change="loadIzinList"
@@ -52,6 +56,33 @@
               {{ jenis.nama }}
             </option>
           </select>
+        </div>
+
+        <!-- Kamar Filter for ASRAMA -->
+        <div v-if="isAsramaRole" class="pt-4 border-t border-gray-100">
+          <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 ml-1">Filter Kamar</label>
+          <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 -mx-1 px-1">
+            <button 
+              @click="selectKamar('')"
+              class="whitespace-nowrap px-4 py-2 rounded-xl text-sm font-bold transition-all flex-shrink-0 border"
+              :class="!filters.kamar_id 
+                ? 'bg-primary-600 text-white border-primary-600 shadow-md shadow-primary-500/30' 
+                : 'bg-white text-gray-600 border-gray-200 hover:border-primary-200 hover:bg-gray-50'"
+            >
+              Semua
+            </button>
+            <button 
+              v-for="kamar in kamarOptions" 
+              :key="kamar.value"
+              @click="selectKamar(kamar.value)"
+              class="whitespace-nowrap px-4 py-2 rounded-xl text-sm font-bold transition-all flex-shrink-0 border"
+              :class="filters.kamar_id === kamar.value 
+                ? 'bg-primary-600 text-white border-primary-600 shadow-md shadow-primary-500/30' 
+                : 'bg-white text-gray-600 border-gray-200 hover:border-primary-200 hover:bg-gray-50'"
+            >
+              {{ kamar.label }}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -104,7 +135,7 @@
             <div class="flex-1">
               <h3 class="font-bold text-gray-900 text-base">{{ izin.santri?.nama }}</h3>
               <p class="text-xs text-gray-500 mt-0.5">
-                {{ izin.santri?.kamar?.nama || 'Kamar tidak diketahui' }} • NIS: {{ izin.santri?.nis }}
+                {{ getKamarNama(izin.santri) }} • NIS: {{ izin.santri?.nis }}
               </p>
             </div>
             <span
@@ -142,8 +173,8 @@
             </div>
           </div>
 
-          <!-- Actions (for ASRAMA role on PENGAJUAN status) -->
-          <div v-if="canApprove && izin.status === 'PENGAJUAN'" class="flex gap-2">
+          <!-- Actions (conditional based on jenis izin) -->
+          <div v-if="canApproveIzin(izin) && izin.status === 'PENGAJUAN'" class="flex gap-2">
             <button
               @click="approveIzin(izin.id)"
               class="flex-1 bg-green-500 text-white py-2.5 rounded-xl font-bold text-sm hover:bg-green-600 active:scale-95 transition-all"
@@ -177,6 +208,7 @@ import { ref, computed, onMounted } from 'vue'
 import { useAuthStore } from '../../app/store/auth.store'
 import { ROLES, hasRole } from '../../utils/role'
 import { izinSantriService } from './izin-santri.service'
+import { kamarService } from '../../services/kamar.service'
 import AppBottomNav from '../../components/layout/AppBottomNav.vue'
 import IzinSantriForm from './IzinSantriForm.vue'
 
@@ -190,12 +222,16 @@ export default {
     const authStore = useAuthStore()
     const izinList = ref([])
     const jenisIzinList = ref([])
+    const kamarOptions = ref([])
     const loading = ref(false)
     const showForm = ref(false)
     const filters = ref({
       status: '',
-      jenis_izin_id: ''
+      jenis_izin_id: '',
+      kamar_id: ''
     })
+
+    const isAsramaRole = computed(() => hasRole(authStore.currentUser, ROLES.ASRAMA))
 
     const canApprove = computed(() => {
       const roles = authStore.currentUser?.roles || []
@@ -242,6 +278,37 @@ export default {
       })
     }
 
+    const getKamarNama = (santri) => {
+      if (!santri) return 'Kamar tidak diketahui'
+      if (santri.kamarHistory && santri.kamarHistory.length > 0) {
+        return santri.kamarHistory[0].kamar?.nama || 'Kamar tidak diketahui'
+      }
+      return 'Kamar tidak diketahui'
+    }
+
+    const canApproveIzin = (izin) => {
+      const roles = authStore.currentUser?.roles || []
+      const jenisIzinNama = izin.jenisIzin?.nama?.toUpperCase()
+      
+      const isAdmin = roles.includes(ROLES.ADMIN)
+      const isUKP = roles.includes(ROLES.UKP)
+      const isAsrama = roles.includes(ROLES.ASRAMA)
+      const isPAU = roles.includes(ROLES.PAU)
+
+      // SAKIT: Only UKP and ADMIN
+      if (jenisIzinNama === 'SAKIT') {
+        return isAdmin || isUKP
+      }
+      
+      // Other izin types: ADMIN, ASRAMA, PAU
+      return isAdmin || isAsrama || isPAU
+    }
+
+    const selectKamar = (kamarId) => {
+      filters.value.kamar_id = kamarId
+      loadIzinList()
+    }
+
     const loadIzinList = async () => {
       loading.value = true
       try {
@@ -266,6 +333,21 @@ export default {
         jenisIzinList.value = response.data || []
       } catch (error) {
         console.error('Error loading jenis izin:', error)
+      }
+    }
+
+    const loadKamarOptions = async () => {
+      if (!isAsramaRole.value) return
+      
+      try {
+        const response = await kamarService.getKamar({ limit: 100 })
+        const kamarData = response.data?.data || []
+        kamarOptions.value = kamarData.map(kamar => ({
+          value: kamar.id,
+          label: kamar.nama
+        }))
+      } catch (error) {
+        console.error('Error loading kamar options:', error)
       }
     }
 
@@ -302,20 +384,26 @@ export default {
 
     onMounted(() => {
       loadJenisIzin()
+      loadKamarOptions()
       loadIzinList()
     })
 
     return {
       izinList,
       jenisIzinList,
+      kamarOptions,
       loading,
       showForm,
       filters,
+      isAsramaRole,
       canApprove,
       canCreate,
       stats,
       getStatusClass,
       formatDate,
+      getKamarNama,
+      canApproveIzin,
+      selectKamar,
       loadIzinList,
       approveIzin,
       rejectIzin,
